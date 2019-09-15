@@ -224,7 +224,7 @@ When some holder tries to make some ADMIN activites (ej. create users)
 **USER table**
 
 Attributes | Name | Email | Password | Role_id
---- | --- | --- | --- |--- | --- | ---
+--- | --- | --- | --- |---
 required | true | true  | true | true
 length  | String of 64 | String of 64  | String of 64 | integer of 32    
 description | User name | User email | user password  | role id
@@ -232,7 +232,7 @@ description | User name | User email | user password  | role id
 **ROLE table**
 
 Attributes | Name | Code
---- | --- | --- | ---
+--- | --- | ---
 required | true | true
 length  | String of 64 | String of 32    
 description | Role name | Unique code for role
@@ -240,7 +240,7 @@ description | Role name | Unique code for role
 **ACCOUNT table**
 
 Attributes | Balance | Clabe | User_id
---- | --- | --- | --- |--- | --- | ---
+--- | --- | --- | ---
 required | true | true  | true
 length  | string of 64 | String of 16  | Integer of 32
 description | Balance of holder | Unique public clabe | user id associated to the account
@@ -248,7 +248,7 @@ description | Balance of holder | Unique public clabe | user id associated to th
 **TRANSFER table**
 
 Attributes | Source account | Destination account | amount
---- | --- | --- | --- |---
+--- | --- | --- | ---
 required | true | true  | true
 length  | String of 16 | String of 16 | 10 decimal   
 description | Cable of current holder| Clabe of destination holder| Amount of money to transfer
