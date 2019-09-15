@@ -4,7 +4,7 @@ FactoryBot.define do
   # Generate a fake record for User model
   factory :user do
     name             {Faker::Name.name}
-    password_digest         {Faker::Alphanumeric.alphanumeric(number: 20)}
+    password         {'contrasena'}
     email            {Faker::Internet.email}
   end
 

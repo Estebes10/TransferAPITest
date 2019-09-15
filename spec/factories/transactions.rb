@@ -1,4 +1,4 @@
-# This file executes a generator to create a fake User object with fake data
+# This file executes a generator to create a fake Transaction object with fake data
 FactoryBot.define do
 
   # Generate a fake record for Transaction model

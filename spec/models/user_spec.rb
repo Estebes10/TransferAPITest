@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is not valid if the password given contains more than 64 characters' do
-    user.password_digest = 'a' * 65
+    user.password = 'a' * 65
 
     expect(user).not_to be_valid
   end
@@ -54,6 +54,13 @@ RSpec.describe User, type: :model do
     # Create a previos record of users and then try to save the new user built
     # before
     FactoryBot.create(:user, email: user.email)
+
+    expect(user).not_to be_valid
+  end
+
+  # validate email format
+  it 'is not valid if email has not valid format' do
+    user.email = 'correo.no-valido'
 
     expect(user).not_to be_valid
   end
