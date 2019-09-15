@@ -57,8 +57,8 @@ class Message
     "The #{record} was successfully assigned to the #{record2}"
   end
 
-  def self.unassign_record(record = 'record', record2 = 'record')
-    "The #{record} was unassign to the #{record2}"
+  def self.succesfull_transfer
+    "Successful transfer"
   end
 
   def self.error_occurs(record = 'record')
@@ -69,4 +69,19 @@ class Message
     "The #{record} has not permission to create users"
   end
 
+  def self.not_privileges(record = 'user')
+    "The user: #{record}, has not privileges to make transactions, it must be holder"
+  end
+
+  def self.not_transfer
+    "The transfer could not be made"
+  end
+
+  def self.no_money
+    "The holder has no enough money"
+  end
+
+  def self.holder_not_found(holder = 'holder')
+    "The destination clabe: #{holder}, could not be found"
+  end
 end

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
       # endpoints following /api/v1/users
       resources :users, only: %I[show create]
+      post 'deliver_money', to: 'users#deliver_money'
+
+      post 'transfer', to: 'transfers#transfer'
+      get 'transactions', to: 'transfers#index'
 
     end
 

@@ -34,4 +34,8 @@ class User < ApplicationRecord
     return role.code == 'ADMIN'
   end
 
+  def is_holder?
+    return role.code == 'HOLDER'
+  end
+
 end
