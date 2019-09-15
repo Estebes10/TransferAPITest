@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_223753) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "clabe", null: false
-    t.string "balance", null: false
+    t.decimal "balance", precision: 10, scale: 2, null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_223753) do
   create_table "transactions", force: :cascade do |t|
     t.string "source_account", null: false
     t.string "destination_account", null: false
-    t.string "amount", null: false
+    t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
