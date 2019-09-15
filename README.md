@@ -65,7 +65,7 @@ Response:
 Get an specficic user from the db, only 'ADMIN'
 
 **Params**
-Hidden token -> Token of Previous user registered and logged in (ADMIN)
+Hidden token -> Token of Previous user registered and logged in (ADMIN)<br/>
 
 Example using httpie:
 ```shell
@@ -99,11 +99,11 @@ Response:
 Register a new user in the db, only 'ADMIN'
 
 **Params**
-Authorization -> HEADER Token of Previous user registered and logged in (ADMIN)
-email         -> Email for new user
-password      -> Password for new user
-name          -> Name for new user
-role          -> Role for new user (1. ADMIN, 2. HOLDER)
+Authorization -> HEADER Token of Previous user registered and logged in (ADMIN)<br/>
+email         -> Email for new user<br/>
+password      -> Password for new user<br/>
+name          -> Name for new user<br/>
+role          -> Role for new user (1. ADMIN, 2. HOLDER)<br/>
 
 Example using httpie:
 ```shell
@@ -130,9 +130,9 @@ Response:
 Deposit a certain amount of money to specific holder, only 'ADMIN'
 
 **Params**
-Authorization   -> HEADER Token of Previous user registered and logged in (ADMIN)
-holder_account  -> ACCOUNT of some holder
-amount          -> AMOUNT of some holder
+Authorization   -> HEADER Token of Previous user registered and logged in (ADMIN)<br/>
+holder_account  -> ACCOUNT of some holder<br/>
+amount          -> AMOUNT of some holder<br/>
 
 
 Example using httpie:
@@ -152,9 +152,9 @@ Make transactions to other holder, only 'HOLDER'. Transactions are made just whe
 destination clabe belongs to another holder and AMOUNT is less than current holder balance.
 
 **Params**
-Authorization        -> HEADER Token of Previous user registered and logged in (HOLDER)
-destination_account  -> ACCOUNT of another holder
-amount               -> AMOUNT of another holder
+Authorization        -> HEADER Token of Previous user registered and logged in (HOLDER)<br/>
+destination_account  -> ACCOUNT of another holder<br/>
+amount               -> AMOUNT of another holder<br/>
 
 Example using httpie:
 ```shell
@@ -174,7 +174,7 @@ Response:
 Get previous transactions of current holder, only 'HOLDER'
 
 **Params**
-Authorization        -> HEADER Token of Previous user registered and logged in (HOLDER)
+Authorization        -> HEADER Token of Previous user registered and logged in (HOLDER)<br/>
 
 Example using httpie:
 ```shell
@@ -220,5 +220,17 @@ When some holder tries to make some ADMIN activites (ej. create users)
 ```
 
 ## Database architecture
+
+**USER table**
+
+| Attributes | Name | Email | Password | Role_id |
+| --- | --- | --- | --- |--- | --- |
+| required | true | true  | true | true |
+| length  | 64 | 64  | 64 | 32 |       
+| description | User name | User email | user password  | role id |
+
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 
 # TransferAPITest
