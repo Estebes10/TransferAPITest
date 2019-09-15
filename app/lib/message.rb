@@ -58,7 +58,7 @@ class Message
   end
 
   def self.succesfull_transfer
-    "Successful transfer"
+    "Successfull transaction"
   end
 
   def self.error_occurs(record = 'record')

@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       # endpoints following /api/v1/users
-      resources :users, only: %I[show create]
+      resources :users, only: %I[show]
+      post 'register_user', to: 'users#create'
       post 'deliver_money', to: 'users#deliver_money'
 
       post 'transfer', to: 'transfers#transfer'
