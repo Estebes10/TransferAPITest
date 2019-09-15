@@ -4,5 +4,19 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
 
-  resources :users
+  #resources :users
+
+  # endpoints following /api/
+  namespace :api do
+
+    # endpoints following /api/v1/
+    namespace :v1 do
+
+      # endpoints following /api/v1/users
+      resources :users, only: %I[show create]
+
+    end
+
+  end
+
 end

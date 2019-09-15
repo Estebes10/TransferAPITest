@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # Associations
   has_one :account
-  has_one :role
+  belongs_to :role
 
   # Validations
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -28,5 +28,10 @@ class User < ApplicationRecord
     uniqueness: true,
     length:     { maximum: 64 },
     format:     VALID_EMAIL_REGEX
+
+  # public class methods
+  def is_admin?
+    return role.code == 'ADMIN'
+  end
 
 end

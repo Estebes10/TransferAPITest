@@ -3,7 +3,6 @@ class CreateRoles < ActiveRecord::Migration[5.2]
     create_table :roles do |t|
       t.string :name, limit: 64, null: false
       t.string :code, limit: 16, null: false
-      t.belongs_to :user
 
       t.timestamps
     end

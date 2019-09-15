@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 2019_09_14_223753) do
   create_table "roles", force: :cascade do |t|
     t.string "name", limit: 64, null: false
     t.string "code", limit: 16, null: false
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_roles_on_code", unique: true
-    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -47,9 +45,11 @@ ActiveRecord::Schema.define(version: 2019_09_14_223753) do
     t.string "name", limit: 64, null: false
     t.string "password_digest", null: false
     t.string "email", limit: 64, null: false
+    t.bigint "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "accounts", "users"

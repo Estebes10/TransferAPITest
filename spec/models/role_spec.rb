@@ -47,5 +47,5 @@ RSpec.describe Role, type: :model do
   end
 
   # test associations
-  it { should belong_to(:user) }
+  it { should have_one(:user) }
 end

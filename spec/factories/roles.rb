@@ -5,7 +5,6 @@ FactoryBot.define do
   factory :role do
     code        {Faker::Alphanumeric.alphanumeric(number: 16)}
     name        {Faker::Job.position}
-    association(:user)
   end
 
 end

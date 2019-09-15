@@ -11,4 +11,5 @@ class Account < ApplicationRecord
   validates :balance,
     presence: true,
     numericality: { only_integer: false }
+
 end

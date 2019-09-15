@@ -68,5 +68,43 @@ RSpec.describe User, type: :model do
   # test associations
   it { should have_one(:account) }
 
-  it { should have_one(:role) }
+  it { should belong_to(:role) }
+
+  # set of tests for each instance and class methods
+  describe ".is_admin?" do
+
+    after(:each) do
+      Role.destroy_all
+      User.destroy_all
+    end
+
+    # returns user object when request is valid
+    context 'when user is admin' do
+
+      before(:each) do
+        @valid_role = Role.create(name: 'ADMINISTRATOR', code: 'ADMIN')
+      end
+
+      it 'returns true' do
+        @user = FactoryBot.create(:user, role_id: @valid_role.id)
+
+        expect(@user.is_admin?).to be(true)
+      end
+
+    end
+
+    context 'when user is not admin' do
+
+      before(:each) do
+        @not_valid_role = Role.create(name: 'Holder', code: 'HOLDER')
+      end
+
+      it 'returns false' do
+        @user = FactoryBot.create(:user, role_id: @not_valid_role.id)
+
+        expect(@user.is_admin?).to be(false)
+      end
+
+    end
+  end
 end

@@ -53,11 +53,6 @@ class Message
     "The #{record} was updated successfully"
   end
 
-  def self.assigned(record = 'record')
-    "The #{record} couldn't be deleted because is currently assigned at least" \
-    " to one study program"
-  end
-
   def self.successfully_assigned(record = 'record', record2 = 'record')
     "The #{record} was successfully assigned to the #{record2}"
   end
@@ -68,6 +63,10 @@ class Message
 
   def self.error_occurs(record = 'record')
     "The #{record} could not be removed because an unexpected error occurs"
+  end
+
+  def self.not_permission(record = 'user')
+    "The #{record} has not permission to create users"
   end
 
 end

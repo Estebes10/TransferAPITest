@@ -6,6 +6,7 @@ FactoryBot.define do
     name             {Faker::Name.name}
     password         {'contrasena'}
     email            {Faker::Internet.email}
+    association(:role)
   end
 
 end
